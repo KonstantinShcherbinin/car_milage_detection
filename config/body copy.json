@@ -1,0 +1,13 @@
+{
+    "analyze_specs": [{
+        "content": "iVBORw0KGgo...",
+        "features": [{
+            "type": "TEXT_DETECTION",
+            "text_detection_config": {
+                "language_codes": ["*"]
+            }
+        }],
+        "mimeType": "JPEG"
+    }],
+    "folderId": "b1gmsb4q0i5t61l8k3pm"
+}
