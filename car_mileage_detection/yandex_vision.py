@@ -18,7 +18,7 @@ def detection(input_path):
     url = 'https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze'
     img_encoded = encode_img(input_path)
     #headers = {'Authorization': 'Bearer ' f'{iam_token}'}
-    headers = {'Authorization': 'Bearer' 't1.9euelZrNlsfHmciVm4yPjYuLnMnNne3rnpWazJfOjIyXnpyNlJfIkpmezcbl9PcDa2Fa-e97Mz663fT3QxlfWvnvezM-us3n9euelZrIjZOOlYvGicrGm8nHz5OXlO_8xeuelZrIjZOOlYvGicrGm8nHz5OXlA.1m0BbYqErPAIlCf80A4s7PWR0XZ9kERST3tbSK0StyhhbJ02wHMdvah1n1ejGYGB9_YVcE9HlIhSsXeNSJ9qBw'}
+    headers = {'Authorization': 'Bearer' 't1.9euelZqYzpLNmM6NmZvOkcnOlJuKle3rnpWazJfOjIyXnpyNlJfIkpmezcbl9PdfVFFa-e9XEWeD3fT3HwNPWvnvVxFng83n9euelZqOyZzPmZfIjoybz5DLxpySxu_8xeuelZqOyZzPmZfIjoybz5DLxpySxg.E_frd5XIYj7kDtampTCxua7D-9NgrO1jT8meQffGlISzUpFiiNZSEqFfca8B8XYAQY7wrAbA9mhQeF9icwGyDA'}
     data = {
         "analyzeSpecs": [
             {
@@ -75,6 +75,7 @@ def main(folder_id, oauth_token, img_path):
     with open(img_path, "rb") as f:
         image_data = base64.b64encode(f.read()).decode('utf-8')
     response_text = request_analyze(vision_url, iam_token, folder_id, image_data)
+    #return response_text
     print(re.findall(r'text": "\d{4,}', response_text))
 
 
@@ -89,7 +90,7 @@ if __name__ == '__main__':
     )
     parser.add_argument(
         '--image_path', type=str,
-        default='C:\\Users\\shers\\car_milage_detection\\data\\original\\autoservice_priem_305_1436523_10.jpg'
+        default='C:\\Users\\shers\\car_milage_detection\\data\\grayscale\\autoservice_priem_305_1138747_7.jpg'
     )
     args = parser.parse_args()
 
