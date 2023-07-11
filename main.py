@@ -6,8 +6,8 @@ from car_mileage_detection.car_mileage import CarMileage
 
 
 def main(
-    img_path: str,
-    config_file: str
+    img_path: str = 'C:\\Users\\shers\\car_mileage_detection\\data\\original\\autoservice_priem_305_1138747_7.jpg',
+    config_file: str = 'C:\\Users\\shers\\car_mileage_detection\\config\\detection_config.json'
 ) -> int:
     low_threshold = 120
     car = CarMileage(img_path, config_file, low_threshold)
