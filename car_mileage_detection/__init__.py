@@ -1,1 +1,0 @@
-from car_mileage_detection import *

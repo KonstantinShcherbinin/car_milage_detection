@@ -1,0 +1,10 @@
+{
+    "pipeline": {
+        "ocr_type": 1
+    },
+
+    "yandex_vision": {
+        "oauth_token": "y0_AgAEA7qjzo7AAATuwQAAAADnErYl2tu26CyRSmiuVvhqDVzKUaUl5-A",
+        "folderId": "b1gmsb4q0i5t61l8k3pm"
+    }
+}

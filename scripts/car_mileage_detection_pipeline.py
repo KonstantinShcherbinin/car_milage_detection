@@ -10,10 +10,12 @@ import os
 import tempfile
 import shutil
 
-from sklearn.preprocessing import OneHotEncoder, PowerTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.compose import TransformedTargetRegressor, ColumnTransformer
-from residual_water_prediction.utils import log_array, exp_array
+#from sklearn.preprocessing import OneHotEncoder, PowerTransformer
+#from sklearn.pipeline import Pipeline
+#from sklearn.compose import TransformedTargetRegressor, ColumnTransformer
+#from residual_water_prediction.utils import log_array, exp_array
+
+from ..myUtils.img_bgrgray_convertation import bgrtogray_convertation
 
 def main(config_file: str):
     with open(config_file, 'r', encoding='utf-8') as f:
@@ -46,14 +48,7 @@ def main(config_file: str):
             return result
         
 def make_pipeline(
-        regressor: str,
-        iterations: int,
-        lr: float,
-        random_seed: int,
-        loss_func: str,
-        eval_metric: str,
-        num_feats: list,
-        cat_feats: list
+        regressor: str
 ):
     if regressor == 'xgb':
         regr = xgb.XGBRegressor(nthread=1)
@@ -68,9 +63,17 @@ def make_pipeline(
         )
     else:
         raise NameError('Сhoose one: "catb", "xgb"')
+    
     numeric_transformer = Pipeline(steps=[
-        ('scaler', PowerTransformer())
+        ('bgrgray_convertation', bgrtogray_convertation(img_path,
+                                                        low_threshold,
+                                                        upper_threshold
+        )
+        img_path,
+        low_threshold: int = 122,
+        upper_treshold: int = 255))
     ])
+    
     categorical_transformer = Pipeline(steps=[
         ('onehot', OneHotEncoder(handle_unknown='ignore'))
     ])
